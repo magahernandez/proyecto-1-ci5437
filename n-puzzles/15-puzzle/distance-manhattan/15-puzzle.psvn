@@ -1,0 +1,83 @@
+# 15-puzzle
+
+DOMAIN tile 16                                 # define a domain called "tile" consisting of 3 constants
+	   0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15   # these are the constants (0 is Blank)
+
+16                                             # a state is a vector of length 16
+
+tile tile tile tile tile tile tile tile tile tile tile tile tile tile tile tile 
+
+# MOVE BLANK DOWN
+
+0 - - - X - - - - - - - - - - - => X - - - 0 - - - - - - - - - - - LABEL MOVE_BLANK_FROM0_TO4
+- - - - 0 - - - X - - - - - - - => - - - - X - - - 0 - - - - - - - LABEL MOVE_BLANK_FROM4_TO8
+- - - - - - - - 0 - - - X - - - => - - - - - - - - X - - - 0 - - - LABEL MOVE_BLANK_FROM8_TO12
+
+- 0 - - - X - - - - - - - - - - => - X - - - 0 - - - - - - - - - - LABEL MOVE_BLANK_FROM1_TO5
+- - - - - 0 - - - X - - - - - - => - - - - - X - - - 0 - - - - - - LABEL MOVE_BLANK_FROM5_TO9
+- - - - - - - - - 0 - - - X - - => - - - - - - - - - X - - - 0 - - LABEL MOVE_BLANK_FROM9_TO13
+
+- - 0 - - - X - - - - - - - - - => - - X - - - 0 - - - - - - - - - LABEL MOVE_BLANK_FROM2_TO6
+- - - - - - 0 - - - X - - - - - => - - - - - - X - - - 0 - - - - - LABEL MOVE_BLANK_FROM6_TO10
+- - - - - - - - - - 0 - - - X - => - - - - - - - - - - X - - - 0 - LABEL MOVE_BLANK_FROM10_TO14
+
+- - - 0 - - - X - - - - - - - - => - - - X - - - 0 - - - - - - - - LABEL MOVE_BLANK_FROM3_TO7
+- - - - - - - 0 - - - X - - - - => - - - - - - - X - - - 0 - - - - LABEL MOVE_BLANK_FROM7_TO11
+- - - - - - - - - - - 0 - - - X => - - - - - - - - - - - X - - - 0 LABEL MOVE_BLANK_FROM11_TO15
+
+# MOVE BLANK UP
+
+X - - - 0 - - - - - - - - - - - => 0 - - - X - - - - - - - - - - - LABEL MOVE_BLANK_FROM4_TO0
+- - - - X - - - 0 - - - - - - - => - - - - 0 - - - X - - - - - - - LABEL MOVE_BLANK_FROM8_TO4
+- - - - - - - - X - - - 0 - - - => - - - - - - - - 0 - - - X - - - LABEL MOVE_BLANK_FROM12_TO8
+
+- X - - - 0 - - - - - - - - - - => - 0 - - - X - - - - - - - - - - LABEL MOVE_BLANK_FROM5_TO1
+- - - - - X - - - 0 - - - - - - => - - - - - 0 - - - X - - - - - - LABEL MOVE_BLANK_FROM9_TO5
+- - - - - - - - - X - - - 0 - - => - - - - - - - - - 0 - - - X - - LABEL MOVE_BLANK_FROM13_TO9
+
+- - X - - - 0 - - - - - - - - - => - - 0 - - - X - - - - - - - - - LABEL MOVE_BLANK_FROM6_TO2
+- - - - - - X - - - 0 - - - - - => - - - - - - 0 - - - X - - - - - LABEL MOVE_BLANK_FROM10_TO6
+- - - - - - - - - - X - - - 0 - => - - - - - - - - - - 0 - - - X - LABEL MOVE_BLANK_FROM14_TO10
+
+- - - X - - - 0 - - - - - - - - => - - - 0 - - - X - - - - - - - - LABEL MOVE_BLANK_FROM7_TO3
+- - - - - - - X - - - 0 - - - - => - - - - - - - 0 - - - X - - - - LABEL MOVE_BLANK_FROM11_TO7
+- - - - - - - - - - - X - - - 0 => - - - - - - - - - - - 0 - - - X LABEL MOVE_BLANK_FROM15_TO11
+
+# MOVE BLANK LEFT
+
+X 0 - - - - - - - - - - - - - - => 0 X - - - - - - - - - - - - - - LABEL MOVE_BLANK_FROM1_TO0
+- X 0 - - - - - - - - - - - - - => - 0 X - - - - - - - - - - - - - LABEL MOVE_BLANK_FROM2_TO1
+- - X 0 - - - - - - - - - - - - => - - 0 X - - - - - - - - - - - - LABEL MOVE_BLANK_FROM3_TO2
+
+- - - - X 0 - - - - - - - - - - => - - - - 0 X - - - - - - - - - - LABEL MOVE_BLANK_FROM5_TO4
+- - - - - X 0 - - - - - - - - - => - - - - - 0 X - - - - - - - - - LABEL MOVE_BLANK_FROM6_TO5
+- - - - - - X 0 - - - - - - - - => - - - - - - 0 X - - - - - - - - LABEL MOVE_BLANK_FROM7_TO6
+
+- - - - - - - - X 0 - - - - - - => - - - - - - - - 0 X - - - - - - LABEL MOVE_BLANK_FROM9_TO8
+- - - - - - - - - X 0 - - - - - => - - - - - - - - - 0 X - - - - - LABEL MOVE_BLANK_FROM10_TO9
+- - - - - - - - - - X 0 - - - - => - - - - - - - - - - 0 X - - - - LABEL MOVE_BLANK_FROM11_TO10
+
+- - - - - - - - - - - - X 0 - - => - - - - - - - - - - - - 0 X - - LABEL MOVE_BLANK_FROM13_TO12
+- - - - - - - - - - - - - X 0 - => - - - - - - - - - - - - - 0 X - LABEL MOVE_BLANK_FROM14_TO13
+- - - - - - - - - - - - - - X 0 => - - - - - - - - - - - - - - 0 X LABEL MOVE_BLANK_FROM15_TO14
+
+# MOVE BLANK RIGHT
+
+0 X - - - - - - - - - - - - - - => X 0 - - - - - - - - - - - - - - LABEL MOVE_BLANK_FROM0_TO1
+- 0 X - - - - - - - - - - - - - => - X 0 - - - - - - - - - - - - - LABEL MOVE_BLANK_FROM1_TO2
+- - 0 X - - - - - - - - - - - - => - - X 0 - - - - - - - - - - - - LABEL MOVE_BLANK_FROM2_TO3
+
+- - - - 0 X - - - - - - - - - - => - - - - X 0 - - - - - - - - - - LABEL MOVE_BLANK_FROM4_TO5
+- - - - - 0 X - - - - - - - - - => - - - - - X 0 - - - - - - - - - LABEL MOVE_BLANK_FROM5_TO6
+- - - - - - 0 X - - - - - - - - => - - - - - - X 0 - - - - - - - - LABEL MOVE_BLANK_FROM6_TO7
+
+- - - - - - - - 0 X - - - - - - => - - - - - - - - X 0 - - - - - - LABEL MOVE_BLANK_FROM8_TO9
+- - - - - - - - - 0 X - - - - - => - - - - - - - - - X 0 - - - - - LABEL MOVE_BLANK_FROM9_TO20
+- - - - - - - - - - 0 X - - - - => - - - - - - - - - - X 0 - - - - LABEL MOVE_BLANK_FROM10_TO11
+
+- - - - - - - - - - - - 0 X - - => - - - - - - - - - - - - X 0 - - LABEL MOVE_BLANK_FROM12_TO13
+- - - - - - - - - - - - - 0 X - => - - - - - - - - - - - - - X 0 - LABEL MOVE_BLANK_FROM13_TO14
+- - - - - - - - - - - - - - 0 X => - - - - - - - - - - - - - - X 0 LABEL MOVE_BLANK_FROM14_TO15
+
+
+GOAL 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
