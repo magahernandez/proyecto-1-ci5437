@@ -56,6 +56,9 @@ abstractor:
 
 %.aStar: %.c ../../../global/aStar.cpp priority_queue.hpp node.hpp
 	$(CXX) $(OPT) ../../../global/aStar.cpp -include $< -o $@
+
+%.bfs: %.c ../../../global/bfs.cpp priority_queue.hpp node.hpp
+	$(CXX) $(OPT) ../../../global/bfs.cpp -include $< -o $@
 	
 .PHONY: clean
 clean:
