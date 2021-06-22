@@ -1,5 +1,6 @@
 #include <vector>
 #include "priority_queue.hpp"
+#include "node.hpp"
 #include <stdlib.h>
 #include <stdio.h>
 #include <inttypes.h>
@@ -10,7 +11,6 @@
 #include <string>
 #include <time.h>
 #include <algorithm>
-#include "node.hpp"
 
 #define  MAX_LINE_LENGTH 999
 

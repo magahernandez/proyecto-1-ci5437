@@ -15,8 +15,4 @@ Node::Node(state_t new_state, Node *new_parent, unsigned new_g) {
 	parent = new_parent;
 	g = new_g;
 }
-
-Node::~Node(void) {
-}
-
 #endif // _NODE_HPP
