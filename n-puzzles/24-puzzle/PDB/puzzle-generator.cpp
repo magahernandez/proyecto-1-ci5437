@@ -32,7 +32,7 @@ void printLine(int t1, int t2, fstream &file) {
 		}
 	}
 
-    file << "MOVE_BLANK_FROM_" << t1 << "_TO_" << t2 << "\n";
+    file << "LABEL MOVE_BLANK_FROM_" << t1 << "_TO_" << t2 << "\n";
 }
 
 int main (int argc, char *argv[]) {
