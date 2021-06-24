@@ -1,0 +1,7 @@
+Input test: 15_puzzle_100_instances_korf.txt
+Id 	 Instance 				 Time-In-Secs 	Generated Nodes		Distance	
+tcmalloc: large alloc 1342177280 bytes == 0x557dcabb4000 @  0x7f41824aa1e7 0x557d696f1dce 0x557d696f374e 0x557d696f3a6d 0x7f4181b06bf7 0x557d696e9b5a
+tcmalloc: large alloc 2684354560 bytes == 0x557e293b4000 @  0x7f41824aa1e7 0x557d696f1dce 0x557d696f374e 0x557d696f3a6d 0x7f4181b06bf7 0x557d696e9b5a
+tcmalloc: large alloc 5368709120 bytes == 0x557ed43b4000 @  0x7f41824aa1e7 0x557d696f1dce 0x557d696f374e 0x557d696f3a6d 0x7f4181b06bf7 0x557d696e9b5a
+tcmalloc: large alloc 10737418240 bytes == 0x55803fbb4000 @  0x7f41824aa1e7 0x557d696f1dce 0x557d696f374e 0x557d696f3a6d 0x7f4181b06bf7 0x557d696e9b5a
+^C
