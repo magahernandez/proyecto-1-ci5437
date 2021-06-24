@@ -19,7 +19,7 @@ int64_t nodes;
 int aStar(state_t *start){
 
     state_t state, child;  // NOTE: "child" will be a predecessor of state, not a successor
-     int g, ruleid;
+    int g, ruleid;
     ruleid_iterator_t iter;
     PriorityQueue<state_t> open; // used for the states we have generated but not yet expanded (the OPEN list)
     state_map_t *distance = new_state_map(); // contains the distance 
