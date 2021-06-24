@@ -5,7 +5,7 @@
 CC = gcc
 CXX = g++
 OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable
-PSVNOPT = --state_map --backward_moves --fwd_history_len=0 --bwd_history_len=0
+PSVNOPT = --state_map --backward_moves --fwd_history_len=2 --bwd_history_len=0
 
 psvn2c_core.c:
 	cp ../../../psvn-for-ci5437/src/psvn2c_core.c ./psvn2c_core.c
@@ -46,7 +46,7 @@ abstractor:
 %.pdb: abstractor
 	@rm -f `dirname $*`_`basename $*`.{abst,pdb,psvn}
 	./abstractor `dirname $*`.psvn `dirname $*`_`basename $*` < `basename $*`.txt
-	make -f makePDB.mk `dirname $*`_`basename $*`.distSummary
+	make -f MakePDB.mk `dirname $*`_`basename $*`.distSummary
 	echo Calculating `dirname $*`_`basename $*.pdb` ...
 	@./`dirname $*`_`basename $*`.distSummary `dirname $*`_`basename $*`.pdb
 
@@ -54,12 +54,15 @@ abstractor:
 	$(CXX) $(OPT) ../../../psvn-for-ci5437/global/dist_pdb.cpp -include $< -o $@
 	rm -f $*.c
 
-%.aStar: %.c ../../../global/idaStar.cpp priority_queue.hpp node.hpp
-	$(CXX) $(OPT) ../../../global/idaStar.cpp -include $< -include PDB.cpp -o $@
-
-%.idaStar: %.c ../../../global/aStar.cpp priority_queue.hpp node.hpp
+%.aStar: %.c ../../../global/aStar.cpp priority_queue.hpp node.hpp
 	$(CXX) $(OPT) ../../../global/aStar.cpp -include $< -include PDB.cpp -o $@
 
+%.idaStar: %.c ../../../global/idaStar.cpp priority_queue.hpp node.hpp
+	$(CXX) $(OPT) ../../../global/idaStar.cpp -include $< -include PDB.cpp -o $@
+	
+%.bfs: %.c ../../../global/bfs.cpp priority_queue.hpp node.hpp
+	$(CXX) $(OPT) ../../../global/bfs.cpp -include $< -o $@
+	
 .PHONY: clean
 clean:
-	rm -fr *.c *.idaStar *.aStar *.succ 15-puzzle_abstraction_1.* 15-puzzle_abstraction_2.* 15-puzzle_abstraction_3.* *.dist *.distSummary *.dist_pdb psvn2c_core.c *.hpp *.abst psvn2c_state_map.c psvn2c_abstraction.c abstractor *.dSYM *.o *~
+	rm -fr *.succ *.dist *.distSummary *.c *.dist_pdb *.aStar *.hpp psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c abstractor *.dSYM *.o *~
