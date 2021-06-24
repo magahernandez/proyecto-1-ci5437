@@ -1,0 +1,6 @@
+Input test: topspin_17_4/topspin_17_4.d=015
+Id       Instance                                Time-In-Secs   Generated Nodes         Distance
+1        9 14 1 7 3 6 10 5 4 2 12 15 11 8 0 13 16        79.983383       22659547                        68
+terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc
+Aborted
