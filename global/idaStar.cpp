@@ -86,7 +86,6 @@ int main(int argc, char **argv){
 
     ifstream file;
     string line;
-    int a_star_distance;
     float runTime;
     clock_t startTime, endTime;
     int number_of_lines = 0;
@@ -108,7 +107,7 @@ int main(int argc, char **argv){
         return -1;
     }
 
-    printf("Id \t Instance \t\t\t\t Time-In-Secs \tGenerated Nodes\t\tDistance\t\n");
+    printf("Id \t Instance \t\t\t\t\t Time-In-Secs \tGenerated Nodes\t\tDistance\t\n");
 
     while (!file.eof()) {
 

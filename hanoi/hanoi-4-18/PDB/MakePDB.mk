@@ -5,7 +5,7 @@
 CC = gcc
 CXX = g++
 OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable
-PSVNOPT = --state_map --backward_moves --fwd_history_len=1 --bwd_history_len=0
+PSVNOPT = --state_map --backward_moves --fwd_history_len=0 --bwd_history_len=0
 
 psvn2c_core.c:
 	cp ../../../psvn-for-ci5437/src/psvn2c_core.c ./psvn2c_core.c
@@ -61,8 +61,8 @@ abstractor:
 	$(CXX) $(OPT) ../../../global/idaStar.cpp -include $< -include PDB.cpp -o $@
 	
 %.bfs: %.c ../../../global/bfs.cpp priority_queue.hpp node.hpp
-	$(CXX) $(OPT) ../../../global/bfs.cpp -include $< -o $@
-
+	$(CXX) $(OPT) -std=c++11  ../../../global/bfs.cpp -include $< -o $@
+	
 .PHONY: clean
 clean:
-	rm -fr *.succ *.dist *.distSummary *.dist_pdb psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c abstractor *.dSYM *.o *~
+	rm -fr *.succ *.dist *.distSummary *.c *.dist_pdb *.aStar *.hpp psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c abstractor *.dSYM *.o *~

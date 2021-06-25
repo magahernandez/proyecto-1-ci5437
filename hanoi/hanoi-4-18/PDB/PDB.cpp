@@ -12,13 +12,13 @@ unsigned max;
 
 void PDB(){
 
-	FILE *f1 = fopen("hanoi-4-12_abstraction_1.pdb","r");
-	abs1 = read_abstraction_from_file("hanoi-4-12_abstraction_1.abst");
+	FILE *f1 = fopen("hanoi-4-18_abstraction_1.pdb","r");
+	abs1 = read_abstraction_from_file("hanoi-4-18_abstraction_1.abst");
 	map1 = read_state_map(f1);
 	fclose(f1);
 
-	FILE *f2 = fopen("hanoi-4-12_abstraction_2.pdb","r");
-	abs2 = read_abstraction_from_file("hanoi-4-12_abstraction_2.abst");
+	FILE *f2 = fopen("hanoi-4-18_abstraction_1.pdb","r");
+	abs2 = read_abstraction_from_file("hanoi-4-18_abstraction_1.abst");
 	map2 = read_state_map(f2);
 	fclose(f2);
 }

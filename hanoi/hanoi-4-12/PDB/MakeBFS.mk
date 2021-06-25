@@ -5,7 +5,7 @@
 CC = gcc
 CXX = g++
 OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable
-PSVNOPT = --state_map --backward_moves --fwd_history_len=0 --bwd_history_len=2
+PSVNOPT = --state_map --backward_moves --fwd_history_len=0 --bwd_history_len=1
 
 psvn2c_core.c:
 	cp ../../../psvn-for-ci5437/src/psvn2c_core.c ./psvn2c_core.c
@@ -48,7 +48,7 @@ abstractor:
 	rm -f $*.c
 
 %.bfs: %.c ../../../global/bfs.cpp priority_queue.hpp node.hpp
-	$(CXX) $(OPT) -std=c++11 ../../../global/bfs.cpp -include $< -o $@
+	$(CXX) $(OPT) ../../../global/bfs.cpp -include $< -o $@
 	
 .PHONY: clean
 clean:
