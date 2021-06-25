@@ -14,6 +14,7 @@ state_t abs_state3;
 
 unsigned max;
 
+// open pdb
 void PDB(){
 
 	FILE *f1 = fopen("top-spin-14-4_abstraction_1.pdb","r");

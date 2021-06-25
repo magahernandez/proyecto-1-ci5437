@@ -14,6 +14,7 @@ state_t abs_state3;
 
 unsigned max;
 
+// open pdb
 void PDB(){
 
 	FILE *f1 = fopen("rubik3Sticker_rubik3Sticker_abstraction_corner.pdb","r");

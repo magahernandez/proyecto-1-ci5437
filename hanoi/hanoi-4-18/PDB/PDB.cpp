@@ -10,6 +10,7 @@ state_t abs_state2;
 
 unsigned max;
 
+// open pdb
 void PDB(){
 
 	FILE *f1 = fopen("hanoi-4-18_abstraction_1.pdb","r");

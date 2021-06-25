@@ -14,6 +14,7 @@ state_t abs_state3;
 
 unsigned sum;
 
+// open pdb
 void PDB(){
 
 	FILE *f1 = fopen("15-puzzle_abstraction_1.pdb","r");

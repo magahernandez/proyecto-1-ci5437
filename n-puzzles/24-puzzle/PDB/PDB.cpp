@@ -16,6 +16,7 @@ state_map_t *map4;
 abstraction_t *abs4;
 state_t abs_state4;
 
+// open pdb
 void PDB(){
 
 	FILE *f1 = fopen("24-puzzle_abstraction_4.pdb","r");
