@@ -18,51 +18,51 @@ using namespace std;
 
 int64_t nodes;
 
-Node * dfs(Node * n, unsigned bound, unsigned * nextBound,
+Node *dfs(Node *n, unsigned bound, unsigned *nextBound,
   const int history) {
   unsigned t = INT_MAX;
-  unsigned f = ( * n).g + heuristic(( * n).state);
+  unsigned f = ( *n).g + heuristic(( *n).state);
   state_t child; // NOTE: "child" will be a predecessor of state, not a successor
   int ruleid;
   int c_history;
   ruleid_iterator_t iter;
-  Node * next;
+  Node *next;
 
   if (f > bound) {
-    * nextBound = f;
+    *nextBound = f;
     return NULL;
   }
 
-  if (is_goal( & ( * n).state)) {
-    * nextBound = ( * n).g;
+  if (is_goal( & ( *n).state)) {
+    *nextBound = ( *n).g;
     return n;
   }
 
   ++nodes;
 
-  init_fwd_iter( & iter, & ( * n).state); // initialize iterator
+  init_fwd_iter( & iter, & ( *n).state); // initialize iterator
   while ((ruleid = next_ruleid( & iter)) >= 0) {
-    apply_fwd_rule(ruleid, & ( * n).state, & child); // Apply rule to the state
+    apply_fwd_rule(ruleid, & ( *n).state, & child); // Apply rule to the state
 
     if (!fwd_rule_valid_for_history(history, ruleid))
       continue;
     c_history = next_fwd_history(history, ruleid); // next history for child
 
-    Node n_child(child, n, (( * n).g + 1));
+    Node n_child(child, n, (( *n).g + 1));
     next = dfs( & n_child, bound, nextBound, c_history); // Again
     if (next != NULL) {
       return next;
     }
-    t = std::min(t, * nextBound);
+    t = std::min(t, *nextBound);
   }
-  * nextBound = t;
+  *nextBound = t;
   return NULL;
 }
 
-Node idaStar(state_t * start) {
-  Node init( * start, NULL, 0);
-  Node * final;
-  unsigned bound = heuristic( * start);
+Node idaStar(state_t *start) {
+  Node init( *start, NULL, 0);
+  Node *final;
+  unsigned bound = heuristic( *start);
   unsigned nextBound;
 
   while (true) {
@@ -76,7 +76,7 @@ Node idaStar(state_t * start) {
 
 }
 
-int main(int argc, char ** argv) {
+int main(int argc, char **argv) {
 
   // VARIABLES FOR INPUT
   char str[MAX_LINE_LENGTH + 1];

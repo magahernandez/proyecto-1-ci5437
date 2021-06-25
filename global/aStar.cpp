@@ -15,16 +15,16 @@ using namespace std;
 
 int64_t nodes;
 
-int aStar(state_t * start) {
+int aStar(state_t *start) {
 
   state_t state, child; // NOTE: "child" will be a predecessor of state, not a successor
   int g, ruleid;
   ruleid_iterator_t iter;
   PriorityQueue < state_t > open; // used for the states we have generated but not yet expanded (the OPEN list)
-  state_map_t * distance = new_state_map(); // contains the distance 
+  state_map_t *distance = new_state_map(); // contains the distance 
 
   state_map_add(distance, start, 0);
-  open.Add(0, 0, * start);
+  open.Add(0, 0, *start);
 
   while (!open.Empty()) {
 
@@ -35,10 +35,10 @@ int aStar(state_t * start) {
     state = open.Top();
     open.Pop();
 
-    int * old_distance = state_map_get(distance, & state);
+    int *old_distance = state_map_get(distance, & state);
     ++nodes;
 
-    if ((old_distance == NULL) || (g < * old_distance) || (!compare_states( & state, start))) {
+    if ((old_distance == NULL) || (g < *old_distance) || (!compare_states( & state, start))) {
 
       state_map_add(distance, & state, g);
 
@@ -65,7 +65,7 @@ int aStar(state_t * start) {
   return -1;
 }
 
-int main(int argc, char ** argv) {
+int main(int argc, char **argv) {
 
   // VARIABLES FOR INPUT
   char str[MAX_LINE_LENGTH + 1];

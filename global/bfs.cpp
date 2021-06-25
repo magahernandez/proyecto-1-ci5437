@@ -15,19 +15,19 @@
 
 using namespace std;
 
-int BFS(state_t * goal, int duplicate) {
+int BFS(state_t *goal, int duplicate) {
 
   state_t state, child; // NOTE: "child" will be a predecessor of state, not a successor
   PriorityQueue < state_t > open; // used for the states we have generated but not yet expanded (the OPEN list)
-  state_map_t * map = new_state_map(); // contains the cost-to-goal for all states that have been generated
+  state_map_t *map = new_state_map(); // contains the cost-to-goal for all states that have been generated
   int dist, d, ruleid, hist2, history;
   ruleid_iterator_t iter; // iterator over rules for state
   history = init_history;
   unordered_map < int, int > nodes;
-  int * new_history;
+  int *new_history;
 
-  /* add goal state */
-  open.Add(0, 0, * goal);
+  /*add goal state */
+  open.Add(0, 0, *goal);
   if (duplicate) {
     state_map_add(map, goal, history);
   }
@@ -55,7 +55,7 @@ int BFS(state_t * goal, int duplicate) {
 
     if (duplicate) {
       new_history = state_map_get(map, & state);
-      history = * new_history;
+      history = *new_history;
     }
 
     // look at all predecessors of the state
@@ -81,7 +81,7 @@ int BFS(state_t * goal, int duplicate) {
   return -1;
 }
 
-int main(int argc, char ** argv) {
+int main(int argc, char **argv) {
   printf("BFS\n");
   printf("D\tNodes\tBranch\n");
   state_t goal;
